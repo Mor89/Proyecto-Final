@@ -1,4 +1,11 @@
+<%-- 
+    Document   : listarProductos
+    Created on : 20-jun-2022, 14:08:12
+    Author     : Wilson
+--%>
+
 <%@page import="Model.Categoria"%>
+<%@page import="Model.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:useBean id="lista" scope="session" class="java.util.List" />
@@ -13,7 +20,7 @@
         
         <!--<div style="width: 600px;">-->
         <div class="col-auto bg-gray p-5 text-center">
-            <a href="<%= request.getContextPath() %>/categorias?opcion=crear" class ="btn btn-success btn-sm glyphicon glyphicon-pencil" role="button">Nueva Categoria</a>
+            <a href="<%= request.getContextPath() %>/productos?opcion=crear" class ="btn btn-success btn-sm glyphicon glyphicon-pencil" role="button">Nueva Categoria</a>
             <h3>Listado de Categorias</h3>
             <table class="table table-striped">
                 <tr>
@@ -24,24 +31,40 @@
                         NOMBRE
                     </th>
                     <th>
-                        ESTADO
+                        CATEGORIA
                     </th>
                     <th>
-                        ACCIONES
+                        STOCK
+                    </th>
+                    <th>
+                        PRECIO
+                    </th>
+                    <th>
+                        UNIDAD DE MEDIDA
+                    </th>
+                    <th>
+                        ESTADO PRODUCTO
+                    </th>
+                    <th>
+                        CATEGORIA
                     </th>
                 </tr>
                 <%
                  for(int i = 0; i < lista.size(); i++){
-                    Categoria categoria = new Categoria();
-                    categoria = (Categoria)lista.get(i);
+                    Producto producto = new Producto();
+                    producto = (Producto)lista.get(i);
                  %>
                  <tr>
-                     <td><%= categoria.getId_categoria() %></td>
-                     <td><%= categoria.getNom_categoria() %></td>
-                     <td><%= categoria.getEstado_categoria() %></td>
+                     <td><%= producto.getId_producto() %></td>
+                     <td><%= producto.getNom_producto() %></td>
+                     <td><%= producto.getStock() %></td>
+                     <td><%= producto.getPrecio() %></td>
+                     <td><%= producto.getUnidadMedida() %></td>
+                     <td><%= producto.getEstado() %></td>
+                     <td><%= producto.getCatogoria_id() %></td>
                      <td>
-                         <a href="categorias?opcion=editar&&id=<%= categoria.getId_categoria() %>&&nombre=<%= categoria.getNom_categoria() %>&&estado=<%= categoria.getEstado_categoria() %>" class="btn btn-info btn-sm glyphicon glyphicon-edit" role="button">Editar</a>
-                         <a href="categorias?opcion=eliminar&&id=<%= categoria.getId_categoria() %>&&nombre=<%= categoria.getNom_categoria() %>" class="btn btn-danger btn-sm glyphicon glyphicon-remove" role="button">Eliminar</a>
+                         
+                         
                      </td>
                  </tr>
                  <%
@@ -53,3 +76,4 @@
         <%@include file = "../WEB-INF/Vistas-Parciales/pie.jspf" %>
     </body>
 </html>
+
