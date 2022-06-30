@@ -1,0 +1,20 @@
+SMAP
+listarCategorias_jsp.java
+JSP
+*S JSP
+*F
++ 0 listarCategorias.jsp
+Vistas-Categorias/listarCategorias.jsp
++ 1 css-js.jspf
+Vistas-Categorias/../WEB-INF/Vista-Parciales/css-js.jspf
++ 2 encabezado.jspf
+Vistas-Categorias/../WEB-INF/Vista-Parciales/encabezado.jspf
+*L
+5,6:51
+10:56,15
+11,5:71
+1#1,19:76
+15#0,4:94
+1#2,13:98
+18#0,16:110
+*E
