@@ -51,34 +51,33 @@ public class Productos extends HttpServlet {
             throws ServletException, IOException {
         //this.listarProductos(request, response);
         String estadop = request.getParameter("opcion");
-         String id_pro = request.getParameter("idP");
-         String nombre_pro = request.getParameter("nombreP");
-         String stock_pro = request.getParameter("stockP");
-         String precio_pro = request.getParameter("precioP");
-         String unidadM_pro = request.getParameter("unidadP");
-         String estado_pro = request.getParameter("estadoP");
-         String categoria_pro = request.getParameter("categoriaP");
+         String id_pro = request.getParameter("idPro");
+         String nombre_pro = request.getParameter("nombrePro");
+         String stock_pro = request.getParameter("stockPro");
+         String precio_pro = request.getParameter("precioPro");
+         String unidadM_pro = request.getParameter("unidadPro");
+         String estado_pro = request.getParameter("estadoPro");
+         String categoria_pro = request.getParameter("categoriaPro");
          
-           if(estadop.equals("crear")){
+         if(estadop.equals("listar")){
+             this.listarProductos(request, response);
+         } else if(estadop.equals("crear")){
              String pagina = "/Vistas-Productos/crearProducto.jsp";
              RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagina);
              dispatcher.forward(request, response);
-         }else if(estadop.equals("listar")){
-             this.listarProductos(request, response);
-         }else if(estadop.equals("listar")){
-            this.listarProductos(request, response);
-         /*}else if(estadop.equals("editar")){
+         }else if(estadop.equals("editar")){
              System.out.println("Editando categorias....");
-             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Vistas-Categorias/editarCategorias.jsp?id="+id_cat+"&&nombre="+nombre_cat+"&&estado="+estado_cat);
+             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Vistas-Productos/editarProducto.jsp?idPro="+id_pro+"&&nombre="+nombre_pro+
+                     "&&stockPro="+stock_pro+"&&precioPro="+precio_pro+"&&unidadPro="+unidadM_pro+"&&estadoPro="+estado_pro+"&&categoriaPro ="+categoria_pro);
              dispatcher.forward(request, response);
-             
-         }else if(estadop.equals("eliminar")){
+            
+         }/*else if(estadop.equals("eliminar")){
              System.out.println("Baja de categorias...");
              RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Vistas-Categorias/bajaCategorias.jsp?id="+id_cat+"&&nombre="+nombre_cat);
              dispatcher.forward(request, response);
          }else{
-              
-         */}
+                 
+        }*/
     }
 
    
@@ -89,12 +88,12 @@ public class Productos extends HttpServlet {
          Producto producto = new Producto();
        
         producto.setId_producto(Integer.parseInt(request.getParameter("id_producto")));
-        producto.setNom_producto(request.getParameter("txtNom_pro"));
+        producto.setNom_producto(request.getParameter("txtNom_produc"));
         producto.setStock(Float.parseFloat(request.getParameter("txtStock_pro")));
         producto.setPrecio(Float.parseFloat(request.getParameter("txtPrecio_pro")));
         producto.setUnidadMedida(request.getParameter("txtUnidadM_pro"));
         producto.setEstado(Integer.parseInt(request.getParameter("txtEstado_pro")));
-       producto.setCatogoria_id(Integer.parseInt(request.getParameter("txtIdcategoria_pro")));
+        producto.setCatogoria_id(Integer.parseInt(request.getParameter("Idcategoria_pro")));
        
        
         //System.out.println("1" + (request.getParameter("txtId_producto")));
@@ -104,15 +103,16 @@ public class Productos extends HttpServlet {
         guardaProducto.guardarPro(producto);
         this.listarProductos(request, response);
     }
-    
-    protected void listarProductos(HttpServletRequest request, HttpServletResponse response)
+     protected void listarProductos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          ProductoDAO producto = new ProductoDAOImplementar();
          HttpSession sesion = request.getSession(true);
          sesion.setAttribute("lista", producto.Listar());
          RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Vistas-Productos/listarProductos.jsp");
          dispatcher.forward(request, response);
+         
     }
+   
     @Override
     public String getServletInfo() {
         return "Short description";

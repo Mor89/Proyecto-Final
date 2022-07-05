@@ -10,18 +10,22 @@ public class Producto {
     private String unidadMedida;
     private int estado;
     private Categoria categoria;
+    private String catego;
 
     public Producto() {
         this.id_producto = 0;
         this.nom_producto = "";
-        this.stock = 0;
-        this.precio = 0;
+        this.stock = 0.0f;
+        this.precio = 0.0f;
         this.unidadMedida = "";
         this.estado = 0;
         this.categoria = new Categoria();
+        this.catogoria_id = 0;
+        this.catego ="";
     }
 
-    public Producto(int id_producto, String nom_producto, int catogoria_id, float stock, float precio, String unidadMedida, int estado, Categoria categoria) {
+    public Producto(int id_producto, String nom_producto, int catogoria_id, float stock, float precio, 
+            String unidadMedida, int estado, Categoria categoria, String catego) {
         this.id_producto = id_producto;
         this.nom_producto = nom_producto;
         this.catogoria_id = catogoria_id;
@@ -30,6 +34,7 @@ public class Producto {
         this.unidadMedida = unidadMedida;
         this.estado = estado;
         this.categoria = categoria;
+        this.catego = catego;
     }
 
     public int getId_producto() {
@@ -94,6 +99,14 @@ public class Producto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public String getCatego() {
+        return catego;
+    }
+
+    public void setCatego(String catego) {
+        this.catego = catego;
     }
     
     

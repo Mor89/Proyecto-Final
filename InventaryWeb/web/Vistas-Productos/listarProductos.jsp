@@ -25,13 +25,10 @@
             <table class="table table-striped">
                 <tr>
                     <th>
-                        ID
+                        IDPRODUCTO
                     </th>
                     <th>
                         NOMBRE
-                    </th>
-                    <th>
-                        CATEGORIA
                     </th>
                     <th>
                         STOCK
@@ -63,8 +60,9 @@
                      <td><%= producto.getEstado() %></td>
                      <td><%= producto.getCatogoria_id() %></td>
                      <td>
-                         
-                         
+                         <a href="productos?opcion=editar&&id=<%= producto.getId_producto() %>&&nombrePro=<%= producto.getNom_producto()%>
+                            &&stockPro=<%= producto.getStock() %>&&precioPro=<%=producto.getPrecio()%>&&unidadPro=<%=producto.getUnidadMedida()%>
+                            &&estadoPro=<%=producto.getEstado()%>&&categoriaPro=<%=producto.getCatogoria_id()%> " class="btn btn-info btn-sm glyphicon glyphicon-edit" role="button">Editar</a>
                      </td>
                  </tr>
                  <%

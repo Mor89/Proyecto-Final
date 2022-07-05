@@ -5,10 +5,14 @@
  */
 package DAO;
 
+import Model.Usuario;
+import java.util.ArrayList;
+
 /**
  *
  * @author Wilson
  */
-public class UsuarioDAO {
+public interface UsuarioDAO {
     
+    public ArrayList<Usuario> startSesion(String user, String clave);
 }

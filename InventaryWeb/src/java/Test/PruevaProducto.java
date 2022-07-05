@@ -29,14 +29,14 @@ public class PruevaProducto {
     public void guardarProducto() {
         ProductoDAO producto = new ProductoDAOImplementar();
         Producto guardarPro = new Producto();
-        
-        guardarPro.setNom_producto("cangrejos");
+        guardarPro.setNom_producto("Pezcado");
+        guardarPro.setId_producto(1);
         guardarPro.setStock(5);
-        guardarPro.setPrecio(6);
-        guardarPro.setUnidadMedida("libras");
-        guardarPro.setEstado(7);
-        guardarPro.setCatogoria_id(4);                       
-        producto.guardarPro(guardarPro);
+        guardarPro.setPrecio(3);
+        guardarPro.setUnidadMedida("Libra");
+        guardarPro.setEstado(1);
+        guardarPro.setCatogoria_id(3);                     
+        System.out.println( producto.guardarPro(guardarPro));
 
     }
     
@@ -58,7 +58,7 @@ public class PruevaProducto {
     
     
     
-    
+    /*
      
     public void editarProducto() {
         ProductoDAO producto = new ProductoDAOImplementar();
@@ -73,7 +73,7 @@ public class PruevaProducto {
                 + "Categoria: " + pro_edit.getCatogoria_id());
     }
    
-    
+    */
     
   /*  public void eliminarProducto(){
         ProductoDAO producto = new ProductoDAOImplementar();

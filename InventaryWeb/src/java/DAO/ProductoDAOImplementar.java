@@ -102,7 +102,7 @@ public class ProductoDAOImplementar implements ProductoDAO{
                 miSQL.append(");");
                 this.conn.ejecutarSQL(miSQL.toString());
             }else if(producto.getId_producto() > 0){
-              /*  
+              
                 System.out.println("Update");
                 StringBuilder miSQL = new StringBuilder();
                 miSQL.append("UPDATE tb_producto SET id_producto = ").append(producto.getId_producto());
@@ -113,9 +113,9 @@ public class ProductoDAOImplementar implements ProductoDAO{
                 miSQL.append("', estado_producto = '").append(producto.getEstado());
                 miSQL.append("', categoria = ").append(producto.getCatogoria_id());
                 miSQL.append(" WHERE id_producto = ").append(producto.getId_producto()).append(";");
-                this.conn.ejecutarSQL(miSQL.toString());*/
+                this.conn.ejecutarSQL(miSQL.toString());
             }
-          //  guarda = true;
+            guarda = true;
         }catch(Exception e){
             
         }finally{

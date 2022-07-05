@@ -77,21 +77,21 @@ public class CategoriaDAOImplementar implements CategoriaDAO {
             if(categoria.getId_categoria() == 0){
                 System.out.println("Guardar");
                 StringBuilder miSQL = new StringBuilder();
-                miSQL.append("INSERT INTO tb_categoria(nom_categoria, estado_categoria) values('");
+                miSQL.append("INSERT INTO tb_categoria(nom_categoria, estado_categoria) VALUES('");
                 miSQL.append(categoria.getNom_categoria() + "', ").append(categoria.getEstado_categoria());
                 miSQL.append(");");
                 this.conn.ejecutarSQL(miSQL.toString());
             }else if(categoria.getId_categoria() > 0){
-                
+              /*  
                 System.out.println("Update");
                 StringBuilder miSQL = new StringBuilder();
                 miSQL.append("UPDATE tb_categoria SET id_categoria = ").append(categoria.getId_categoria());
                 miSQL.append(", nom_categoria = '").append(categoria.getNom_categoria());
                 miSQL.append("', estado_categoria = ").append(categoria.getEstado_categoria());
                 miSQL.append(" WHERE id_categoria = ").append(categoria.getId_categoria()).append(";");
-                this.conn.ejecutarSQL(miSQL.toString());
+                this.conn.ejecutarSQL(miSQL.toString());*/
             }
-           guarda = true;
+          // guarda = true;
         }catch(Exception e){
             
         }finally{
