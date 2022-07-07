@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class UsuarioDaoImplementar implements UsuarioDAO{
+public class UsuarioDAOImplementar implements UsuarioDAO{
     
     ConexionBD conn;  //Crear el objeto tipo conexión.
 
-    public UsuarioDaoImplementar() {
+    public UsuarioDAOImplementar() {
         //Definir a la base de datos que se conectará por defecto.
         //this.conn = FactoryConexionBD.open(FactoryConexionBD.MySQL);
     }
@@ -75,7 +75,7 @@ public class UsuarioDaoImplementar implements UsuarioDAO{
     //Método creado para probar de inmediato el método startSesion()
     public static void main(String[] args){
         //UsuarioDaoImplementar p = new UsuarioDaoImplementar();  
-        UsuarioDAO p = new UsuarioDaoImplementar();
+        UsuarioDAO p = new UsuarioDAOImplementar();
         //p.sesion("chovi", "123");
         ArrayList<Usuario> user = new ArrayList();
         user = p.startSesion("manuel.gamez@itca.edu.sv", "12345");

@@ -1,7 +1,7 @@
 package Controller;
 
 import DAO.UsuarioDAO;
-import DAO.UsuarioDaoImplementar;
+import DAO.UsuarioDAOImplementar;
 import Model.Usuario;
 
 import java.io.IOException;
@@ -57,7 +57,7 @@ public class Login extends HttpServlet {
         System.out.println("Password: "+pass);*/
         
         //Crear la instancia de UsuarioDAO
-        UsuarioDAO usuario = new UsuarioDaoImplementar();
+        UsuarioDAO usuario = new UsuarioDAOImplementar();
         
         //Creación de arraylist para cargar datos del método que consulta a la base de datos.
         ArrayList<Usuario> users = new ArrayList();
