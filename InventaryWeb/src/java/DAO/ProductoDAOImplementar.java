@@ -136,7 +136,7 @@ public class ProductoDAOImplementar implements ProductoDAO{
                 miSQL.append("', precio = '").append(producto.getPrecio());
                 miSQL.append("', stock = '").append(producto.getStock());
                 miSQL.append("', unidad_de_medida = '").append(producto.getUnidadMedida());
-                miSQL.append("', categoria = ").append(producto.getCatogoria_id());
+                miSQL.append("', estado_producto = ").append(producto.getEstado());
                 
                 miSQL.append(" WHERE id_producto = ").append(producto.getId_producto()).append(";");
                 this.conn.ejecutarSQL(miSQL.toString());

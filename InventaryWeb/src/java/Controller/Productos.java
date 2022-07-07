@@ -50,7 +50,7 @@ public class Productos extends HttpServlet {
          String stock_pro = request.getParameter("stock");
          String precio_pro = request.getParameter("precio");
          String unidad_medida = request.getParameter("UnidadMedida");
-         String categoria = request.getParameter("cat");
+         
          
          
          
@@ -64,7 +64,7 @@ public class Productos extends HttpServlet {
              this.listaProductos(request, response);
          }else if(estado.equals("editar")){
              System.out.println("Editando Productos....");
-             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Vistas-Productos/editarProductos.jsp?id="+id_pro+"&&nombre="+nombre_pro+"&&estado="+estado_pro+"&&precio="+precio_pro+"&&stock="+stock_pro+"&&UnidadMedida="+unidad_medida+"&&cat="+categoria);
+             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Vistas-Productos/editarProductos.jsp?id="+id_pro+"&&nombre="+nombre_pro+"&&estado="+estado_pro+"&&precio="+precio_pro+"&&stock="+stock_pro+"&&UnidadMedida="+unidad_medida);
              dispatcher.forward(request, response);
          }else if(estado.equals("eliminar")){
              System.out.println("Baja de Productos...");

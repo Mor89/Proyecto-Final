@@ -12,6 +12,14 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+                    <file>${libs.jstl.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.InventaryWeb-recursos}</file>
+                    <path-in-war>WEB-INF/classes</path-in-war>
+                </library>
+                <library dirs="200">
                     <file>${file.reference.AbsoluteLayout.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
@@ -41,10 +49,6 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.jasperreports-6.0.0.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${libs.jstl.classpath}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

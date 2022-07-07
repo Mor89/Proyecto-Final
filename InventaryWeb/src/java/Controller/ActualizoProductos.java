@@ -50,7 +50,7 @@ public class ActualizoProductos extends HttpServlet {
         String stock_pro = request.getParameter("stock");
         String precio_pro = request.getParameter("precio");
         String unidad_medida = request.getParameter("UnidadMedida");
-       String categoria = request.getParameter("categoria_id");
+      
         
         ProductoDAO producto = new ProductoDAOImplementar();
         Producto pro = new Producto();
@@ -60,7 +60,7 @@ public class ActualizoProductos extends HttpServlet {
         pro.setStock(Double.parseDouble(stock_pro));
         pro.setPrecio(Double.parseDouble(precio_pro));
         pro.setUnidadMedida(unidad_medida);
-        pro.setCatogoria_id(Integer.parseInt(categoria));
+       
         
         
         if(producto.guardarPro(pro)==true){

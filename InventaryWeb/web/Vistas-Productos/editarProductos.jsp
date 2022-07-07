@@ -69,25 +69,7 @@
               <input type="text" value='<%= unidad_medida %>' name="UnidadMedida" id="UnidadMedida" class="form-control" placeholder="unidad medida Producto" required="true">
           </div>
         </div>
-          <label for="txtcatogoria" class="form-label">Select list (select one):</label>
-    <select class="form-select" id="NomCatogoria" name="txtcatogoria">
-        
-        
-        <%
-                                  
-                                  CategoriaDAO categorias = new CategoriaDAOImplementar();
-                                   List<Categoria> cat = new ArrayList<Categoria>();
-                                   
-                                   cat = categorias.Listar();
-                                   for(int i = 0; i < cat.size() ; i++)
-                                   {
-                                   Categoria categ = cat.get(i);
-                                   %>
-      <option value="<%= categ.getId_categoria() %>"><%= categ.getId_categoria() %></option>
-      <%      
-                               }
-                               %>
-    </select>
+          
         <input type="submit" class="btn btn-success btn-lg" name="btnGuardar" value="Actualizar" />
           
           <div class="mb-3 row">
