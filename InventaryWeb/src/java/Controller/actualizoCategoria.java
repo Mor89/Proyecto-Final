@@ -2,13 +2,14 @@ package Controller;
 import DAO.CategoriaDAO;
 import DAO.CategoriaDAOImplementar;
 import Model.Categoria;
+
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 
 public class actualizoCategoria extends HttpServlet {
@@ -51,6 +52,7 @@ public class actualizoCategoria extends HttpServlet {
          String id_cat = request.getParameter("id");
          String nombre_cat = request.getParameter("nombre");
          String estado_cat = request.getParameter("estado");
+         
          /*
          System.out.println("INFORMACIÓN RECIBIDA: ");
          System.out.println("ID Categoria: " + id_cat);
@@ -63,7 +65,7 @@ public class actualizoCategoria extends HttpServlet {
          cat.setId_categoria(Integer.parseInt(id_cat));
          cat.setNom_categoria(nombre_cat);
          cat.setEstado_categoria(Integer.parseInt(estado_cat));
-         if(categoria.guardarCat(cat)){
+         if(categoria.guardarCat(cat)==true){
              //System.out.println("Registro Actualizado.");
               RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Vistas-Categorias/editarCategorias.jsp?aviso=ok");
               dispatcher.forward(request, response);

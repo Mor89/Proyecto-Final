@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Factory.ConexionBD;
@@ -16,11 +11,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class UsuarioDAOImplementar implements UsuarioDAO{
+public class UsuarioDaoImplementar implements UsuarioDAO{
     
     ConexionBD conn;  //Crear el objeto tipo conexión.
 
-    public UsuarioDAOImplementar() {
+    public UsuarioDaoImplementar() {
         //Definir a la base de datos que se conectará por defecto.
         //this.conn = FactoryConexionBD.open(FactoryConexionBD.MySQL);
     }
@@ -80,10 +75,10 @@ public class UsuarioDAOImplementar implements UsuarioDAO{
     //Método creado para probar de inmediato el método startSesion()
     public static void main(String[] args){
         //UsuarioDaoImplementar p = new UsuarioDaoImplementar();  
-        UsuarioDAO p = new UsuarioDAOImplementar();
+        UsuarioDAO p = new UsuarioDaoImplementar();
         //p.sesion("chovi", "123");
         ArrayList<Usuario> user = new ArrayList();
-        user = p.startSesion("wilson.moreno21@itca.edu.sv", "123456");
+        user = p.startSesion("manuel.gamez@itca.edu.sv", "12345");
         //Para obtener el tamaño de un arraylist. El tamaño esta dado en base
         //a la cantidad de filas o registros existentes en la BD.
         int size = user.size();
@@ -94,6 +89,6 @@ public class UsuarioDAOImplementar implements UsuarioDAO{
               System.out.println("El valor máximo de i es: " + i);
             } 
       }
-   
-  
+    
+    
 }

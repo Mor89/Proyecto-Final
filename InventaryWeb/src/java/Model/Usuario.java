@@ -1,9 +1,7 @@
-
 package Model;
 
-
 public class Usuario {
-     int id;
+    int id;
     String nombre;
     String apellido;
     String correo;
@@ -31,6 +29,9 @@ public class Usuario {
         this.respuesta = respuesta;
         this.fecha = fecha;
     }
+
+    
+    
 
     public int getId() {
         return id;
@@ -119,6 +120,8 @@ public class Usuario {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-
+    
+    
+    
     
 }

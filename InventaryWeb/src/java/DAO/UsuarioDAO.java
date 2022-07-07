@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Model.Usuario;
 import java.util.ArrayList;
 
-/**
- *
- * @author Wilson
- */
 public interface UsuarioDAO {
     
+    //Definir los métodos, como la clase en interface. Los métodos no se implementan 
+    //aqui, los métodos son de tipo abstractos.
     public ArrayList<Usuario> startSesion(String user, String clave);
+   
 }

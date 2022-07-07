@@ -5,27 +5,25 @@ public class Producto {
     private int id_producto;
     private String nom_producto;
     private int catogoria_id;
-    private float stock;
-    private float precio;
+    private double stock;
+    private double precio;
     private String unidadMedida;
     private int estado;
     private Categoria categoria;
-    private String catego;
+    private String catogoria_nom;
 
     public Producto() {
         this.id_producto = 0;
         this.nom_producto = "";
-        this.stock = 0.0f;
-        this.precio = 0.0f;
-        this.unidadMedida = "";
         this.estado = 0;
+        this.precio = 0;
+        this.stock = 0;
+        this.unidadMedida = "";
+        this.catogoria_nom = "";
         this.categoria = new Categoria();
-        this.catogoria_id = 0;
-        this.catego ="";
     }
 
-    public Producto(int id_producto, String nom_producto, int catogoria_id, float stock, float precio, 
-            String unidadMedida, int estado, Categoria categoria, String catego) {
+    public Producto(int id_producto, String nom_producto, int catogoria_id, double stock, double precio, String unidadMedida, String categorianom, int estado, Categoria categoria) {
         this.id_producto = id_producto;
         this.nom_producto = nom_producto;
         this.catogoria_id = catogoria_id;
@@ -34,7 +32,7 @@ public class Producto {
         this.unidadMedida = unidadMedida;
         this.estado = estado;
         this.categoria = categoria;
-        this.catego = catego;
+        this.catogoria_nom = categorianom;
     }
 
     public int getId_producto() {
@@ -61,19 +59,19 @@ public class Producto {
         this.catogoria_id = catogoria_id;
     }
 
-    public float getStock() {
+    public double getStock() {
         return stock;
     }
 
-    public void setStock(float stock) {
+    public void setStock(double stock) {
         this.stock = stock;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -93,20 +91,20 @@ public class Producto {
         this.estado = estado;
     }
 
+    public String getCatogoria_nom() {
+        return catogoria_nom;
+    }
+
+    public void setCatogoria_nom(String catogoria_nom) {
+        this.catogoria_nom = catogoria_nom;
+    }
+
     public Categoria getCategoria() {
         return categoria;
     }
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public String getCatego() {
-        return catego;
-    }
-
-    public void setCatego(String catego) {
-        this.catego = catego;
     }
     
     

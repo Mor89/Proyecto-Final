@@ -1,50 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DAO;
-
-
-import Factory.*;
+import Factory.ConexionBD;
+import Factory.FactoryConexionDB;
 import Model.Producto;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Wilson
- */
-public class ProductoDAOImplementar implements ProductoDAO{
-
-    private ConexionBD conn;
-
-    public ProductoDAOImplementar() {
-       // this.conn = FactoryConexionDB.open(FactoryConexionDB.MySQL);
+public class ProductoDAOImplementar implements ProductoDAO{ 
+    ConexionBD conn;
+    public ProductoDAOImplementar(){   
     }
-    
-    
-    
-    
-    @Override
+@Override
     public List<Producto> Listar() {
         this.conn = FactoryConexionDB.open(FactoryConexionDB.MySQL);
         StringBuilder miSQL = new StringBuilder();
-        miSQL.append("select * from tb_producto;");
+        miSQL.append("SELECT PROD.id_producto, PROD.nom_producto, PROD.stock, PROD.precio, PROD.unidad_de_medida, PROD.estado_producto, CAT.nom_categoria FROM tb_producto AS PROD INNER JOIN tb_categoria AS CAT ON PROD.categoria=CAT.id_categoria; ");
         List<Producto> lista = new ArrayList<Producto>();
         try{
             ResultSet resultadoSQL = this.conn.consultaSQL(miSQL.toString());
             while(resultadoSQL.next()){
                 Producto producto = new Producto();
-                
                 producto.setId_producto(resultadoSQL.getInt("id_producto"));
                 producto.setNom_producto(resultadoSQL.getString("nom_producto"));
-                producto.setStock(resultadoSQL.getInt("stock"));
-                producto.setPrecio(resultadoSQL.getInt("precio"));
-                producto.setUnidadMedida(resultadoSQL.getString("unidad_de_medida"));
                 producto.setEstado(resultadoSQL.getInt("estado_producto"));
-                producto.setCatogoria_id(resultadoSQL.getInt("categoria"));
+                producto.setPrecio(resultadoSQL.getFloat("precio"));
+                producto.setStock(resultadoSQL.getFloat("stock"));
+                producto.setUnidadMedida(resultadoSQL.getString("unidad_de_medida"));
+                producto.setCatogoria_nom(resultadoSQL.getString("nom_categoria"));
                 lista.add(producto);
             }
         }catch(Exception ex){
@@ -52,82 +36,41 @@ public class ProductoDAOImplementar implements ProductoDAO{
         }finally{
             this.conn.cerrarConexion();
         }
+        
         return lista;
     }
 
     @Override
-    public List<Producto> Listar2() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Producto editarPro(int id_cat_edit) {
+    public Producto editarPro(int id_pro_edit) {
         this.conn = FactoryConexionDB.open(FactoryConexionDB.MySQL);
         Producto producto = new Producto();
         StringBuilder miSQL = new StringBuilder();
-        miSQL.append("select * from tb_producto where id_producto = ").append(id_cat_edit);
+        miSQL.append("select * from tb_producto where id_producto = ").append(id_pro_edit);
         try{
             ResultSet resultadoSQL = this.conn.consultaSQL(miSQL.toString());
             while(resultadoSQL.next()){
                 producto.setId_producto(resultadoSQL.getInt("id_producto"));
                 producto.setNom_producto(resultadoSQL.getString("nom_producto"));
-                producto.setStock(resultadoSQL.getInt("stock"));
-                producto.setPrecio(resultadoSQL.getInt("precio"));
-                producto.setUnidadMedida(resultadoSQL.getString("unidad_de_medida"));
                 producto.setEstado(resultadoSQL.getInt("estado_producto"));
-                producto.setCatogoria_id(resultadoSQL.getInt("categoria"));
+                producto.setPrecio(resultadoSQL.getFloat("precio"));
+                producto.setStock(resultadoSQL.getFloat("stock"));
+                producto.setUnidadMedida(resultadoSQL.getString("medida"));
             }
             
-        }catch(Exception e){
+        }catch(SQLException e){
             
         }finally{
             this.conn.cerrarConexion();
         }
         
         return producto;
-    }
+    }    
 
-    @Override
-    public boolean guardarPro(Producto producto) {
-        this.conn = FactoryConexionDB.open(FactoryConexionDB.MySQL);
-        boolean guarda = false;
-        
-        try{
-            if(producto.getId_producto() == 0){
-                System.out.println("Guardar");
-                StringBuilder miSQL = new StringBuilder();
-                miSQL.append("INSERT INTO tb_producto(nom_producto, stock, precio, unidad_de_medida, estado_producto, categoria ) values('");
-                miSQL.append(producto.getNom_producto() + "', '").append(producto.getStock() + "', '").append(producto.getPrecio() + "', '").
-                        append(producto.getUnidadMedida()+ "', '").append(producto.getEstado() + "', ").append(producto.getCatogoria_id());
-                miSQL.append(");");
-                this.conn.ejecutarSQL(miSQL.toString());
-            }else if(producto.getId_producto() > 0){
-              
-                System.out.println("Update");
-                StringBuilder miSQL = new StringBuilder();
-                miSQL.append("UPDATE tb_producto SET id_producto = ").append(producto.getId_producto());
-                miSQL.append(", nom_producto = '").append(producto.getNom_producto());
-                miSQL.append("', stock = '").append(producto.getStock());
-                miSQL.append("', precio = '").append(producto.getPrecio());
-                miSQL.append("', unidad_de_medida = '").append(producto.getUnidadMedida());
-                miSQL.append("', estado_producto = '").append(producto.getEstado());
-                miSQL.append("', categoria = ").append(producto.getCatogoria_id());
-                miSQL.append(" WHERE id_producto = ").append(producto.getId_producto()).append(";");
-                this.conn.ejecutarSQL(miSQL.toString());
-            }
-            guarda = true;
-        }catch(Exception e){
-            
-        }finally{
-            this.conn.cerrarConexion();
-        }
-        
-        return guarda;
-    }
+    
 
     @Override
     public boolean borrarPro(int id_pro_borrar) {
-          this.conn = FactoryConexionDB.open(FactoryConexionDB.MySQL);
+        this.conn = FactoryConexionDB.open(FactoryConexionDB.MySQL);
         boolean borra = false;
         try{
             StringBuilder miSQL = new StringBuilder();
@@ -140,6 +83,72 @@ public class ProductoDAOImplementar implements ProductoDAO{
             this.conn.cerrarConexion();
         }
         
-        return borra;
+        return borra;    }
+
+    @Override
+    public List<Producto> Listar2() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-}
+
+    @Override
+    public boolean guardarPro(Producto producto) {
+        this.conn = FactoryConexionDB.open(FactoryConexionDB.MySQL);
+        boolean guarda = false;
+        
+        try{
+            if(producto.getId_producto()== 0){
+                System.out.println("Guardar");
+                StringBuilder miSQL = new StringBuilder();
+                miSQL.append("INSERT INTO tb_producto(nom_producto, estado_producto, precio, stock, unidad_de_medida, categoria) values('");
+                miSQL.append(producto.getNom_producto()+ "', ").append(producto.getEstado());
+                miSQL.append(", ").append(producto.getPrecio());
+                miSQL.append(", ").append(producto.getStock());
+                miSQL.append(", '").append(producto.getUnidadMedida());
+                miSQL.append("', '").append(producto.getCatogoria_id());
+
+
+                miSQL.append("');");
+                this.conn.ejecutarSQL(miSQL.toString());
+            }else if(producto.getId_producto()> 0){
+                
+                //System.out.println("Update");
+                 /*miSQL.append("Update tb_producto set nom_producto = '");
+            miSQL.append(producto.getNom_producto());
+            miSQL.append("',  des_producto = '");
+            miSQL.append(prod.getDesc_producto());
+            miSQL.append("', stock = ");
+            miSQL.append(prod.getStock());
+            miSQL.append(", precio = ");
+            miSQL.append(prod.getPrecio());
+            miSQL.append(", unidad_de_medida = '");
+            miSQL.append(prod.getUnidadMedida());
+            miSQL.append("', estado_producto = ");
+            miSQL.append(prod.getEstado());
+            miSQL.append(", categoria = ");
+            miSQL.append(prod.getCategoria());
+            miSQL.append(" where id_producto =  ").append(prod.getId_producto());
+            miSQL.append(";");
+            System.out.println(miSQL.toString());
+            */
+                StringBuilder miSQL = new StringBuilder();
+                miSQL.append("update tb_producto set nom_producto = '").append(producto.getNom_producto());
+                miSQL.append("', estado_producto = '").append(producto.getEstado());
+                miSQL.append("', precio = '").append(producto.getPrecio());
+                miSQL.append("', stock = '").append(producto.getStock());
+                miSQL.append("', unidad_de_medida = '").append(producto.getUnidadMedida());
+                miSQL.append("', categoria = ").append(producto.getCatogoria_id());
+                
+                miSQL.append(" WHERE id_producto = ").append(producto.getId_producto()).append(";");
+                this.conn.ejecutarSQL(miSQL.toString());
+            }
+           guarda = true;
+        }catch(Exception e){
+            
+        }finally{
+            this.conn.cerrarConexion();
+        }
+        
+        return guarda;
+    }
+   
+    }

@@ -1,11 +1,6 @@
-<%-- 
-    Document   : listarProductos
-    Created on : 20-jun-2022, 14:08:12
-    Author     : Wilson
---%>
-
-
 <%@page import="Model.Producto"%>
+<%@page import="Model.Categoria"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:useBean id="lista" scope="session" class="java.util.List" />
@@ -20,15 +15,20 @@
         
         <!--<div style="width: 600px;">-->
         <div class="col-auto bg-gray p-5 text-center">
-            <a href="<%= request.getContextPath() %>/productos?opcion=crear" class ="btn btn-success btn-sm glyphicon glyphicon-pencil" role="button">Nuevo Producto</a>
+            <a href="<%= request.getContextPath() %>/productos?opcion=crear" class ="btn btn-success btn-sm glyphicon glyphicon-pencil" role="button">
+                Nuevo producto
+            </a>
             <h3>Listado de Productos</h3>
             <table class="table table-striped">
                 <tr>
                     <th>
-                        IDPRODUCTO
+                        ID
                     </th>
                     <th>
                         NOMBRE
+                    </th>
+                    <th>
+                        ESTADO
                     </th>
                     <th>
                         STOCK
@@ -40,10 +40,10 @@
                         UNIDAD DE MEDIDA
                     </th>
                     <th>
-                        ESTADO PRODUCTO
+                        CATEGORIA
                     </th>
                     <th>
-                        CATEGORIA
+                        ACCIONES
                     </th>
                 </tr>
                 <%
@@ -52,17 +52,16 @@
                     producto = (Producto)lista.get(i);
                  %>
                  <tr>
-                     <td><%= producto.getId_producto() %></td>
+                 <td><%= producto.getId_producto() %></td>
                      <td><%= producto.getNom_producto() %></td>
-                     <td><%= producto.getStock() %></td>
-                     <td><%= producto.getPrecio() %></td>
-                     <td><%= producto.getUnidadMedida() %></td>
                      <td><%= producto.getEstado() %></td>
-                     <td><%= producto.getCatogoria_id() %></td>
+                     <td><%= producto.getStock() %></td>
+                     <td>$<%= producto.getPrecio() %> </td>
+                     <td> <%= producto.getUnidadMedida() %> </td>
+                     <td> <%= producto.getCatogoria_nom() %> </td>
                      <td>
-                         <a href="productos?opcion=editar&&id=<%= producto.getId_producto() %>&&nombrePro=<%= producto.getNom_producto()%>
-                            &&stockPro=<%= producto.getStock() %>&&precioPro=<%=producto.getPrecio()%>&&unidadPro=<%=producto.getUnidadMedida()%>
-                            &&estadoPro=<%=producto.getEstado()%>&&categoriaPro=<%=producto.getCatogoria_id()%> " class="btn btn-info btn-sm glyphicon glyphicon-edit" role="button">Editar</a>
+                         <a href="productos?opcion=editar&&id=<%= producto.getId_producto() %>&&nombre=<%= producto.getNom_producto() %>&&estado= <%= producto.getEstado() %> &&stock= <%= producto.getStock()%> &&precio= <%= producto.getPrecio() %> &&UnidadMedida= <%= producto.getUnidadMedida ()%> &&cat = <%= producto.getCatogoria_id() %>" class="btn btn-info btn-sm glyphicon glyphicon-edit" role="button">Editar</a>
+                         <a href="productos?opcion=eliminar&&id=<%= producto.getId_producto() %>&&nombre=<%= producto.getNom_producto() %>&&estado= <%= producto.getEstado() %>" class="btn btn-danger btn-sm glyphicon glyphicon-remove" role="button">Eliminar</a>
                      </td>
                  </tr>
                  <%
@@ -74,4 +73,3 @@
         <%@include file = "../WEB-INF/Vistas-Parciales/pie.jspf" %>
     </body>
 </html>
-

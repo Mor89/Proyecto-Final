@@ -1,15 +1,15 @@
 package Controller;
 import DAO.CategoriaDAO;
 import DAO.CategoriaDAOImplementar;
-import Model.Categoria;
+
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 public class BajaCategoria extends HttpServlet {
 
@@ -45,7 +45,7 @@ public class BajaCategoria extends HttpServlet {
          
          CategoriaDAO categoria = new CategoriaDAOImplementar();
          //Categoria cat = new Categoria();
-         if(categoria.borrarCat(Integer.parseInt(id))){
+         if(categoria.borrarCat(Integer.parseInt(id))==true){
              System.out.println("Registro eliminado correctamente.");
              this.listaCategorias(request, response);
          }else{

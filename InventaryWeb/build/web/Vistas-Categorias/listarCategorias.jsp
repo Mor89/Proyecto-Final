@@ -13,7 +13,9 @@
         
         <!--<div style="width: 600px;">-->
         <div class="col-auto bg-gray p-5 text-center">
-            <a href="<%= request.getContextPath() %>/categorias?opcion=crear" class ="btn btn-success btn-sm glyphicon glyphicon-pencil" role="button">Nueva Categoria</a>
+            <a href="<%= request.getContextPath() %>/categorias?opcion=crear" class ="btn btn-success btn-sm glyphicon glyphicon-pencil" role="button">
+                Nueva categoria
+            </a>
             <h3>Listado de Categorias</h3>
             <table class="table table-striped">
                 <tr>
