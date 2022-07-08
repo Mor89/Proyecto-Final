@@ -1,4 +1,4 @@
-<%-- any content can be specified here e.g.: --%>
+ <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 
 <script type="text/javascript">
@@ -104,7 +104,7 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Reportes</a>
+                    <a class="nav-link" href="../Reportes/index.jsp">Reportes</a>
                   </li>
       </ul>
       <form class="d-flex" role="search">

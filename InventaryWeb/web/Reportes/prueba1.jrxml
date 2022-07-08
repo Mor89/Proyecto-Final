@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f571d4c2-8fa8-4bee-9069-ae8bf8b5be4f">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c9735a9a-eb7d-4d25-b3e8-3776d7e629f8">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -24,16 +24,18 @@ FROM
 	<title>
 		<band height="70" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="107" y="24" width="263" height="33" uuid="1e62571f-0ab2-4a1c-9b44-85bec6b4a173"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Reportes Categoria]]></text>
+				<reportElement style="Title" x="53" y="24" width="283" height="46" uuid="80de24d2-c561-4f2c-970e-359efbf6962d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Reporte Categoria]]></text>
 			</staticText>
 			<image>
-				<reportElement x="381" y="0" width="151" height="70" uuid="3e321991-07df-4e71-92a3-ce065375b8ee"/>
-				<imageExpression><![CDATA["C:\\Users\\ITCA\\Documents\\NetBeansProjects\\Proyecto-Final\\InventaryWeb\\web\\Reportes\\Reporte.jpg"]]></imageExpression>
+				<reportElement x="359" y="0" width="122" height="58" uuid="26492bbe-ed75-4123-acaf-1c5de1240c02"/>
+				<imageExpression><![CDATA["C:\\Users\\zc102\\Desktop\\Proyecto-Final\\InventaryWeb\\web\\Reportes\\Reporte.jpg"]]></imageExpression>
 			</image>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement style="Column header" x="0" y="4" width="197" height="20" uuid="694c607e-cf70-4f50-9ec9-6d03da5769ea"/>
+				<reportElement style="Column header" x="0" y="4" width="197" height="20" uuid="0264f0ab-d1d4-4f5b-8499-5d6bfd14e4a8"/>
 				<textElement>
 					<font size="10" isBold="false"/>
 				</textElement>
@@ -47,21 +49,21 @@ FROM
 	<columnHeader>
 		<band height="36" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="cf1eea5e-1430-4e8f-b1b0-6631832253ab"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="9b79d106-32b5-42b4-a8a5-79f1bef5069c"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="0" y="19" width="185" height="15" uuid="ed6e7bd3-7f22-4f70-9538-4d8697775daa"/>
+				<reportElement style="Column header" x="0" y="19" width="185" height="15" uuid="eea8543d-9417-44f8-8726-d38413b56358"/>
 				<text><![CDATA[id_categoria]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="185" y="19" width="185" height="15" uuid="068a276d-6d0d-415e-b0fa-5c673067234a"/>
+				<reportElement style="Column header" x="185" y="19" width="185" height="15" uuid="f9537f5e-4806-4d20-90d0-6abf3e4258e7"/>
 				<text><![CDATA[nom_categoria]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="370" y="19" width="185" height="15" uuid="ee68c013-824a-4b0c-847c-3b804177973f"/>
+				<reportElement style="Column header" x="370" y="19" width="185" height="15" uuid="44c97816-6da5-43e6-85ba-39ab73e80278"/>
 				<text><![CDATA[estado_categoria]]></text>
 			</staticText>
 		</band>
@@ -69,29 +71,29 @@ FROM
 	<detail>
 		<band height="16" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="bd702abc-1b30-4bed-a2ba-c370cb8fbe82"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="1c4f4734-3a59-41ae-81bb-4674c9fff548"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement style="Detail" x="0" y="0" width="185" height="15" uuid="c350e6ac-f330-40c3-ad35-e5c48ba383c2"/>
+				<reportElement style="Detail" x="0" y="0" width="185" height="15" uuid="a84c818c-1024-46cf-bc59-01ebc43da7f4"/>
 				<textFieldExpression><![CDATA[$F{tb_categoria_id_categoria}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="185" y="0" width="185" height="15" uuid="65e2e2aa-6924-4a80-84f4-193946a09e0c"/>
+				<reportElement style="Detail" x="185" y="0" width="185" height="15" uuid="c1a9b123-a82e-410b-a6df-def47624ba14"/>
 				<textFieldExpression><![CDATA[$F{tb_categoria_nom_categoria}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="370" y="0" width="185" height="15" uuid="c276e366-2bcd-47f4-af61-ab67ac4e8060"/>
+				<reportElement style="Detail" x="370" y="0" width="185" height="15" uuid="891260c5-df03-470c-a6d1-5b91d06d429a"/>
 				<textFieldExpression><![CDATA[$F{tb_categoria_estado_categoria}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch">
+		<band height="71" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="20256d98-f19c-484d-8625-8d73322b22d9"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="8796cd89-bf98-4273-b243-63f05486ee34"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
